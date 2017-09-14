@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/js.js')}}"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+			<p>Thank you for submitting your registation</p>
+			<p>First Name: {{session['first_name']}}</p>
+            <p>Last Name: {{session['last_name']}}</p>
+			<p>Email: {{session['email']}}</p>
+			<p>User Id: {{ session['userid']}}</p>
+			<p>Logout: <a href="/logout">Log out</a></p>
+
+
+    </div>
+</body>
+
+</html>

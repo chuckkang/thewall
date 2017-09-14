@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>The Wall</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="{{url_for('static', filename='js/js.js')}}"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		
+		
+		<div id="header">
+			<p>Coding Dojo Wall</p>
+			<p id="login">Welcome {{session['first_name']}} {{session['last_name']}} <a href="/logout"> Log out</a></p>
+
+		</div>
+		<p id="errormsg">
+			{% with messages = get_flashed_messages() %} 
+			{% if messages %} 
+				{% for message in messages %} {{ message }} {% endfor %} 
+			{% endif %} 
+			{% endwith %}
+		</p>
+		<form method="POST" action="/postmessage/{{session['userid']}}">
+		<textarea rows="4" cols="50" name="message" id="postmessage"></textarea>
+		<br>
+		<input type="submit" value="POST A MESSAGE" id="submitbutton">
+		</form>
+			{% for i in messagedata %}
+				<div id="messagecontainer">
+				<p>Message: <br>{{ i['full_name'] }}-{{ i['message_created'] }}</p>
+				{{ i['message'] }}
+				</div>
+				{% for comment in commentsdata %}
+					{% if i['message_id']== comment['message_id'] %}
+						
+						<div id="commentsbox">
+							<p align="right"><a href="/deletepost">Delete This Post</a></p>
+							<p>{{comment['comment_username']}} -- {{comment['comment_created']}}</p>
+							{{comment['comment']}}
+						</div>
+					{% endif %}
+				{% endfor %}<br>
+				<div id="formright">
+			<form method="POST" action="/postcomment/{{i['message_id']}}" id="formright">
+				<textarea rows="3" cols="30" name="comment" id="comment"></textarea>
+				<br>
+				<input type="submit" value="POST A comment" id="submitbutton">
+			</form>
+		</div>
+			{% endfor %}
+			
+		
+	</div>
+</body>
+
+</html>

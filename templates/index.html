@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/js.js')}}"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+		<p id="errormsg">
+		 {% with messages = get_flashed_messages() %} 
+		 {% if messages %}
+			{% for message in messages %}
+				{{ message }}
+			{% endfor %}
+		 {% endif %} 
+		 {% endwith %}
+		</p>
+		
+
+		<form method="POST" action="/">
+			<p align="center">Please enter you username and password. <br>(username is your email)</p>
+			
+			<label>Email: </label><input type="text" name="email" value="{{requestDict['email']}}"><br>
+            <label>Password:</label><input type="text" name="password" value="{{requestDict['password']}}"><br>
+            <button>Submit</button>
+		</form>
+		
+		<p align="center"><a href="/register">Register</a> for a new account</p>
+
+    </div>
+</body>
+
+</html>

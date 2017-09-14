@@ -1,0 +1,122 @@
+* { box-sizing: border-box; }
+body {
+    width:100%;
+	margin: auto;
+	vertical-align: top;
+}
+
+#wrapper{
+    border: 2px solid green;
+    width: 90%;
+    margin: auto;
+	text-align: center;
+	vertical-align: top;
+}
+
+/* ********************************************************************************************** */
+p {
+	font-weight: bolder;
+}
+#header p{
+	text-align: left;
+	width:48%;
+	/* border: 2px solid black; */
+	display: inline-block;
+	vertical-align: top;
+}
+#login{
+	text-align: right;
+	width: 48%;
+	display: inline-block;
+	/* border: 2px solid pink; */
+}
+
+
+#submitbutton{
+	text-align: right;
+}
+
+#spacer {
+	/* border: 2px solid blue; */
+	text-align: left;
+	display: inline;
+}
+
+#postmessage {
+	width: 70%;
+	/* border: 2px solid blue; */
+	text-align: left;
+	margin: auto;
+}
+
+#messagecontainer {
+	width: 70%;
+	border: 2px solid blue;
+	text-align: left;
+	margin: auto;
+}
+
+#message {
+	width: 100%;
+	border: 2px solid blue;
+	text-align: left;
+	margin: auto;
+	padding: 0px 0px 0px 30px;
+}
+
+#messagetitle {
+	width: 30%;
+	border: 2px solid blue;
+	text-align: left;
+}
+
+#commentsbox{
+	text-align: left;
+	/* border: 2px solid green; */
+	background-color:lightgrey;
+	padding: 0px 0px 10px 100px;
+	width: 50%;
+	margin: auto;
+}
+#formright {
+	text-align: center;
+	width:65%;
+	margin: auto;
+	border: none;
+	background-color: white;
+}
+/* ***************************************form designs******************************************* */
+#errormsg {
+	color: red;
+	height: 10px;
+}
+form {
+    /* border: 2px solid black; */
+    width: 100%;
+    margin: auto;
+}
+
+
+label, input {
+    /* in order to define widths */
+    display: inline-block;
+}
+
+label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+}
+
+label + input {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input {
+    float: right;
+}
